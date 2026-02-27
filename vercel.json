@@ -1,18 +1,27 @@
 {
-    "function": {
-        "api/*.php": {
-            "runtime": "vercel-php@0.6.1"
-        }
-    },
-    "routes": [
+    "version": 2,
+    "builds": [
         {
-            "src": "/(.*)\\.php",
-            "dest": "/api/index.php"
+            "src": "*.php",
+            "use": "@vercel/php"
         },
         {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
+            "src": "mahasiswa/*.php",
+            "use": "@vercel/php"
+        },
+        {
+            "src": "dosen/*.php",
+            "use": "@vercel/php"
+        },
+        {
+            "src": "config/*.php",
+            "use": "@vercel/php"
         }
     ],
-    "cleanUrls": true
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/$1"
+        }
+    ]
 }
